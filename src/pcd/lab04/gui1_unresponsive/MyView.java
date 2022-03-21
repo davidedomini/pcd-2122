@@ -54,6 +54,4 @@ class MyView extends JFrame implements ActionListener {
 			this.setVisible(true);
 		});
 	}
-	
-	
 }
