@@ -10,10 +10,11 @@ public class TestBarrier {
 		int nWorkers = 10;
 		
 		Barrier barrier = new FakeBarrier(nWorkers);
+		Barrier realBarrier = new BarrierImpl(nWorkers);
 		
 		List<Worker> workers = new ArrayList<Worker>();
 		for (int i = 0; i < nWorkers; i++) {
-			workers.add(new Worker("Worker-"+i, barrier));
+			workers.add(new Worker("Worker-"+i, realBarrier));
 		}
 
 		for (Worker w: workers) {
