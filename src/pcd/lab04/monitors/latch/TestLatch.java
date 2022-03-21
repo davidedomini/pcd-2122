@@ -11,15 +11,16 @@ public class TestLatch {
 		int nThreadB = 10;
 		
 		Latch latch = new FakeLatch(nThreadB);
+		Latch latch2 = new LatchImpl(nThreadB);
 		
 		List<ThreadA> threadsAlist = new ArrayList<ThreadA>();
 		for (int i = 0; i < nThreadA; i++) {
-			threadsAlist.add(new ThreadA("ThreadA-" + i, latch));
+			threadsAlist.add(new ThreadA("ThreadA-" + i, latch2));
 		}
 
 		List<ThreadB> threadsBlist = new ArrayList<ThreadB>();
 		for (int i = 0; i < nThreadB; i++) {
-			threadsBlist.add(new ThreadB("ThreadB-" + i, latch));
+			threadsBlist.add(new ThreadB("ThreadB-" + i, latch2));
 		}
 
 		for (ThreadA t: threadsAlist) {
