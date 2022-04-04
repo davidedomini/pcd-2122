@@ -4,10 +4,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.*;
 
+
+
 public class QuadratureService extends Thread {
 
 	private int numTasks;
-	private ExecutorService executor;
+	private ExecutorService executor; //In order to use submit(callable) I have to use ExecutorService
 	
 	public QuadratureService (int numTasks, int poolSize){		
 		this.numTasks = numTasks;
@@ -33,7 +35,7 @@ public class QuadratureService extends Thread {
 	    double sum = 0;
 	    for (Future<Double> res: results) {
 	    	try {
-	    		sum += res.get();
+	    		sum += res.get(); //get is a blocking call
 	    	} catch (Exception ex){
 	    		ex.printStackTrace();
 	    	}

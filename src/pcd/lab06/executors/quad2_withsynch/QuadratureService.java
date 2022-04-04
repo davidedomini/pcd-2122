@@ -26,7 +26,7 @@ public class QuadratureService  {
 				e.printStackTrace();
 			}
 		}				
-		double res = result.getResult();
+		double res = result.getResult(); //get result è simile ad un latch quindi se non tutti i task sono stati elaborati mi blocco e aspetto
 		return res;
 	}
 	
