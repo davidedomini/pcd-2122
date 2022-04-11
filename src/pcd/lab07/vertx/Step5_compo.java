@@ -14,8 +14,9 @@ class TestCompo extends AbstractVerticle {
 
 		Future<Buffer> f1 = p1.future();
 		Future<Buffer> f2 = p2.future();
-		
-		fs.readFile("build.gradle", p1);
+
+		//Al posto che passargli la continuazione e dirgli di crearsi la sua promise gliela passo già io e gli dico di avvertirmi su quella
+		fs.readFile("build.gradle.kts", p1);
 		
 		fs.readFile("settings.gradle", p2);
 				

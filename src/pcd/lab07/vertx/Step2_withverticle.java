@@ -13,7 +13,7 @@ class MyReactiveAgent extends AbstractVerticle {
 		
 		FileSystem fs = getVertx().fileSystem();    		
 		
-		Future<Buffer> f1 = fs.readFile("build.gradle");
+		Future<Buffer> f1 = fs.readFile("build.gradle.kts");
 
 		f1.onComplete((AsyncResult<Buffer> res) -> {
 			log("BUILD \n" + res.result().toString().substring(0,160));

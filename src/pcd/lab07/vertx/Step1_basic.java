@@ -10,14 +10,15 @@ public class Step1_basic {
 
 	public static void main(String[] args) {
 		
-		Vertx  vertx = Vertx.vertx();
+		Vertx  vertx = Vertx.vertx(); //crea un event loop e ci restituisce il suo riferimento
 
-		FileSystem fs = vertx.fileSystem();    		
+		FileSystem fs = vertx.fileSystem();
 
 		log("started");
 		
 		/* version 4.0 - future (promise) based API */
-		
+
+		//La future è la faccia dell'API asincrona lato client, non si usano direttamente le promise (la future si ottiene dalla promise)
 		Future<Buffer> fut = fs.readFile("build.gradle");
 		fut.onComplete((AsyncResult<Buffer> res) -> {
 			log("BUILD \n" + res.result().toString().substring(0,160));

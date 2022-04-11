@@ -8,9 +8,12 @@ class TestPromise extends AbstractVerticle {
 	
 	public void start() {
 		log("pre");		
-		
+
+		//Creo una promise dicendogli il tipo di risultato che mi aspetto
+		//Al contrario di js non devo specificargli subito la callback
 		Promise<Double> promise = Promise.promise();
-		
+
+		//questo pezzo di codice è quello che mettiamo di solito nella parte di librerira che vuole fornire API asincrone
 		this.getVertx().setTimer(1000, res -> {
 			log("timeout from the timer...");
 			Random rand = new Random();
@@ -23,9 +26,11 @@ class TestPromise extends AbstractVerticle {
 				promise.fail("Value below 0.5 " + value);
 			}
 		});
-		
+
+		//Qui dalla promise lato libreria vado a prendermi la future da restituire al client
 		Future<Double> fut = promise.future();
-		
+
+		//Lato client uso la future
 		fut
 		.onSuccess((Double res) -> {
 			log("reacting to timeout - success: " + res);

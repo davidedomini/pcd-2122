@@ -20,8 +20,14 @@ sourceSets {
 dependencies {
     // Use JUnit test framework
     testImplementation("junit:junit:4.13.2")
-    implementation(files("JPF/jpf-core/build/jpf-classes.jar"))
+    /* module 2.2 - async programming with event-loops - vert.x */
     implementation("io.vertx:vertx-core:4.2.6")
+    implementation("io.vertx:vertx-web:4.2.6")
+
+    implementation("io.vertx:vertx-web-client:4.2.6")
+
+    implementation("com.github.javaparser:javaparser-symbol-solver-core:3.24.2")
+    implementation(files("JPF/jpf-core/build/jpf-classes.jar"))
 }
 /*
 tasks.register("jpfVerify") {

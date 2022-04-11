@@ -11,7 +11,7 @@ class TestChain extends AbstractVerticle {
 	public void start() {
 		FileSystem fs = vertx.fileSystem();    		
 
-		Future<Buffer> f1 = fs.readFile("build.gradle");
+		Future<Buffer> f1 = fs.readFile("build.gradle.kts");
 		
 		Future<Buffer> f2 = f1.compose((Buffer buf) -> {
 			log("1 - BUILD \n" + buf.toString().substring(0,160));
