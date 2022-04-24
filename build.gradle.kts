@@ -25,7 +25,7 @@ dependencies {
     implementation("io.vertx:vertx-web:4.2.6")
 
     implementation("io.vertx:vertx-web-client:4.2.6")
-
+    implementation("io.reactivex.rxjava3:rxjava:3.1.4")
     implementation("com.github.javaparser:javaparser-symbol-solver-core:3.24.2")
     implementation(files("JPF/jpf-core/build/jpf-classes.jar"))
 }
