@@ -15,6 +15,8 @@ class MyAgent1 extends AbstractVerticle {
 		startPromise.complete();
 	}
 
+
+
 	private void log(String msg) {
 		System.out.println("[REACTIVE AGENT #1] " + msg);
 	}
@@ -28,6 +30,10 @@ class MyAgent2 extends AbstractVerticle {
 		eb.publish("my-topic", "test");
 	}
 
+	public void meth1(String s){
+		log(s);
+	}
+
 	private void log(String msg) {
 		System.out.println("[REACTIVE AGENT #2] " + msg);
 	}
@@ -39,7 +45,9 @@ public class Step9_EventBus {
 		Vertx  vertx = Vertx.vertx();
 		vertx.deployVerticle(new MyAgent1(), res -> {
 			/* deploy the second verticle only when the first has completed */
-			vertx.deployVerticle(new MyAgent2());
+			MyAgent2 m = new MyAgent2();
+			vertx.deployVerticle(m);
+			m.meth1("ciao funziona");
 		});
 	}
 }

@@ -23,7 +23,8 @@ class TestCompo extends AbstractVerticle {
 		CompositeFuture
 		.all(f1,f2)
 		.onSuccess((CompositeFuture res) -> {
-			log("COMPOSITE => \n"+res.result().list());			
+			log("COMPOSITE => \n"+res.result().list());
+			System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		}); 
 	}
 
